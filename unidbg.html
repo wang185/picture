@@ -1,0 +1,375 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <link rel="icon" href="/favicon.ico">
+    <title>Unidbg星球内容索引</title>
+    <link rel="stylesheet" href="./css/quill.snow.css?t=202208171505" />
+    <link rel="stylesheet" href="./css/github.css" />
+    <style>
+        body {
+            margin: 0px;
+            font-size: 14px;
+            background: #f0f3f8;
+            font-family: "PingFangSC-Regular","Helvetica Neue",Helvetica,"Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+        }
+        .top-bar {
+            height: 60px;
+            background: #EBEBEB;
+        }
+        .post {
+            margin: 0 auto;
+            width: 800px;
+            padding: 40px;
+            box-sizing: border-box;
+            position: relative;
+            background-color: white;
+        }
+        .post .title {
+            margin: 0px;
+            font-family: PingFangSC-Medium;
+            font-size: 20px;
+            color: #1A1A1A;
+            line-height: 30px;
+        }
+        .group-info {
+            margin-top: 8px;
+            font-size: 14px;
+            color: #567895;
+        }
+        .group-info a {
+            color: #567895;
+            text-decoration: none;
+        }
+        .author-info {
+            margin-top: 30px;
+            margin-bottom: 24px;
+            height: 24px;
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .author-info .author {
+            display: flex;
+            align-items: center;
+        }
+        .author-info img {
+            height: 24px;
+            width: 24px;
+            border-radius: 12px;
+        }
+        .author-info .date {
+            color: #B3B3B3;
+        }
+        .author-info .nick-name {
+            color: #4D4D4D;
+            margin-left: 12px;
+        }
+        .content {
+            letter-spacing: 0;
+            color: #2F3034;
+            font-size: 16px;
+            word-wrap: break-word;
+            line-height: 28px;
+            white-space: pre-wrap;
+        }
+        .content div, .content p {
+            line-height: 28px;
+        }
+        .content figure {
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+        }
+        .content img {
+            max-width: 100%;
+            object-fit: cover;
+            display: inline-block;
+        }
+        .content a {
+            text-decoration: none;
+            color: #567895;
+        }
+        .content a:hover {
+            text-decoration: underline;
+        }
+        .content p {
+            margin: 0px;
+            white-space: pre-wrap;
+            tab-size: 4;
+        }
+        .content table {
+            display: block;
+            overflow: auto;
+            border: none;
+            border-collapse: collapse;
+            empty-cells: show;
+            max-width: 100%
+        }
+        .content table td {
+            min-width: 5px
+        }
+        .content table td,.content table th {
+            border: 1px solid #ddd
+        }
+        .content table td:empty,.content table th:empty {
+            height: 20px
+        }
+        .content table th {
+            background: #ececec
+        }
+        .content blockquote {
+            color: #9a9a9a;
+            margin: 15px 0 !important;
+            border-left: 3px solid #ccc !important;
+            padding-left: 10px !important;
+        }
+        .content code {
+            white-space: normal;
+            background-color: #f0f0f0;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+        .content .article-hr {
+            border-style: solid;
+            border-width: 1px 0 0;
+            border-color: rgba(0, 0, 0, 0.1);
+            transform: scale(1, 0.5);
+            margin: 15px 0;
+        }
+        .content ol {
+            padding-left: 0;
+        }
+        .ql-snow .ql-editor .ql-code-block-container {
+            background-color: rgba(0, 0, 0, 0.03);
+            border: 1px solid #f0f0f0;
+            border-radius: 2px;
+            color: #333;
+            white-space: pre-wrap;
+        }
+        .content .ql-syntax {
+            background-color: #23241f;
+            color: #f8f8f2;
+            overflow: visible;
+            white-space: pre-wrap;
+            margin-bottom: 5px;
+            margin-top: 5px;
+            padding: 5px 10px;
+            border-radius: 3px;
+        }
+        .content pre {
+            white-space: pre-wrap;
+        }
+        .content ol, .content ul {
+            margin: 0;
+        }
+        .ql-align-center {
+            text-align: center;
+        }
+        .ql-align-right {
+            text-align: right;
+        }
+        ul {
+            list-style-type: disc;
+        }
+        footer {
+            margin-top: 48px;
+            margin-bottom: 48px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        footer img {
+            width: 18px;
+            height: 18px;
+            margin-left: 15px;
+        }
+        footer .text {
+            font-size: 15px;
+            color: #16B998;
+            margin: 0 15px 0 6px;
+        }
+        footer .horizon-line {
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+            width: 50px;
+        }
+        .qrcode-container {
+            position: absolute;
+            left: 820px;
+            top: 0px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px 20px 15px 20px;
+            border: 2px solid rgba(0,0,0,0.05);
+        }
+        .qrcode-container img {
+            width: 140px;
+            height: 140px;
+            margin-bottom: 15px;
+        }
+        .qrcode-container .text-desc {
+            font-size: 12px;
+            color:#B3B3B3;
+        }
+        #qrcode-url {
+            display: none;
+        }
+        .message-container-overlay {
+            position: fixed;
+            left: 50%;
+            top: 50px;
+            width: 400px;
+            margin-left: -200px;
+            margin-top: 10px;
+            z-index: 99;
+        }
+        .message-item {
+            margin-top: 5px;
+            height: 40px;
+            background: rgba(252, 192, 96, .9);
+            box-shadow: 0 2px 8px 0 rgba(227, 169, 33, .2);
+            z-index: 50;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 4px;
+        }
+        .js-disable-copy {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        li.ql-indent-1:not([data-list]) {
+            counter-increment: list-1;
+            margin-left: 1.2em;
+        }
+        li.ql-indent-2:not([data-list]) {
+            list-style-type: circle;
+            counter-increment: list-2;
+            margin-left: 2.7em;
+        }
+        li.ql-indent-3:not([data-list]) {
+            list-style-type: circle;
+            counter-increment: list-3;
+            margin-left: 4.2em;
+        }
+        li.ql-indent-4:not([data-list]) {
+            list-style-type: circle;
+            counter-increment: list-4;
+            margin-left: 5.7em;
+        }
+        li.ql-indent-5:not([data-list]) {
+            list-style-type: circle;
+            counter-increment: list-5;
+            margin-left: 7.2em;
+        }
+        li.ql-indent-6:not([data-list]) {
+            list-style-type: circle;
+            counter-increment: list-6;
+            margin-left: 8.7em;
+        }
+        li.ql-indent-7:not([data-list]) {
+            list-style-type: circle;
+            counter-increment: list-7;
+            margin-left: 10.2em;
+        }
+        li.ql-indent-8:not([data-list]) {
+            list-style-type: circle;
+            counter-increment: list-8;
+            margin-left: 11.7em;
+        }
+        ol {
+            counter-reset: list-1 list-2 list-3 list-4 list-5 list-6 list-7 list-8 list-9;
+        }
+        ol li:not([data-list]) {
+            list-style-type: none !important;
+            counter-increment: list-0;
+        }
+        ol li:not([data-list])::before {
+            display: inline-block;
+            content: counter(list-0, decimal) ".";
+            position: relative;
+            left: -10px;
+        }
+        ol li.ql-indent-1:not([data-list])::before {
+            content: counter(list-1, decimal) ".";
+        }
+        ol li.ql-indent-2:not([data-list])::before {
+            content: counter(list-2, decimal) ".";
+        }
+        ol li.ql-indent-3:not([data-list])::before {
+            content: counter(list-3, decimal) ".";
+        }
+        ol li.ql-indent-4:not([data-list])::before {
+            content: counter(list-4, decimal) ".";
+        }
+        ol li.ql-indent-5:not([data-list])::before {
+            content: counter(list-5, decimal) ".";
+        }
+        ol li.ql-indent-6:not([data-list])::before {
+            content: counter(list-6, decimal) ".";
+        }
+        ol li.ql-indent-7:not([data-list])::before {
+            content: counter(list-7, decimal) ".";
+        }
+        ol li.ql-indent-8:not([data-list])::before {
+            content: counter(list-8, decimal) ".";
+        }
+        ol li.ql-indent-9:not([data-list])::before {
+            content: counter(list-9, decimal) ".";
+        }
+        h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="post js_watermark quill-editor">
+        <h1 class="title">Unidbg星球内容索引</h1>
+        <div class="group-info">
+            <a href="https://wx.zsxq.com/dweb2/index/group/28855842512881">
+                <span>来自：</span>
+                <span class="group-name">Android学习交流</span>
+            </a>
+        </div>
+        <div class="author-info">
+            <div class="author">
+                <img src="https://images.zsxq.com/FnY1jPI8XCjd_yOR8QvYU0wOioHn?e=2032502400&token=kIxbL07-8jAj8w1n4s9zv64FuZZNEATmlU_Vm6zD:MTnwDddm-RVxYNXDNUzRAHF1ZHQ="  alt="用户头像" />
+                <span class="nick-name">白龙</span>
+            </div>
+            <span class="date" id="article-date">2022年11月13日 16:11</span>
+        </div>
+        <div class="ql-snow">
+            <div class="content ql-editor"><h3><span style="font-family: PingFangSC-Regular; font-size: 2em;">一、入门基础</span></h3><p><br></p><p>《<a href="https://www.yuque.com/lilac-2hqvv/xdwlsg/idgio0?singleDoc#%20%E3%80%8AUnidbg%20%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D%E3%80%8B" target="_blank">Unidbg 的基本介绍与起源</a>》</p><p>《<a href="https://www.yuque.com/docs/share/758a4d9b-ba59-4bc9-a119-e8ed24d17bd9?#%20%E3%80%8AUnidbg%20%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF%E3%80%8B" target="_blank">Unidbg 的使用场景</a>》</p><p>《<a href="https://www.yuque.com/docs/share/ae77ef36-7f9e-4e9c-ae53-e7d18c2d95c4?#%20%E3%80%8AUnidbg%20%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%EF%BC%88%E4%B8%80%EF%BC%89%E3%80%8B" target="_blank">Unidbg 的基本使用（一）</a>》</p><p>《<a href="https://www.yuque.com/docs/share/6f14c2e7-558c-4f4e-8c59-771c4073b51e?#%20%E3%80%8AUnidbg%20%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%EF%BC%88%E4%BA%8C%EF%BC%89%E3%80%8B" target="_blank">Unidbg 的基础使用（二）</a>》</p><p>《<a href="https://www.yuque.com/lilac-2hqvv/xdwlsg/bmf8lm68ffvhrfu0?#%20%E3%80%8AUnidbg%20%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%EF%BC%88%E4%B8%89%EF%BC%89%E3%80%8B" target="_blank">Unidbg 的基本使用（三）</a>》</p><p>《<a href="https://www.yuque.com/lilac-2hqvv/xdwlsg/uo6guvore38kr29y?#%20%E3%80%8AUnidbg%20%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%EF%BC%88%E5%9B%9B%EF%BC%89%E3%80%8B" target="_blank">Unidbg 的基本使用（四）</a>》</p><p>《<a href="https://www.yuque.com/lilac-2hqvv/xdwlsg/hiiaukxvr2zuz5mb?#%20%E3%80%8AUnidbg%20%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%EF%BC%88%E4%BA%94%EF%BC%89%E3%80%8B" target="_blank">Unidbg 的基本使用（五）</a>》</p><p>《<a href="https://www.yuque.com/lilac-2hqvv/xdwlsg/avlc01hrko6yvr26?#%20%E3%80%8AUnidbg%20%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%EF%BC%88%E5%85%AD%EF%BC%89%E3%80%8B" target="_blank">Unidbg 的基本使用（六）</a>》</p><p>《<a href="https://www.yuque.com/lilac-2hqvv/xdwlsg/ybo3xo4kloaqc1xq?#%20%E3%80%8AUnidbg%20%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%EF%BC%88%E4%B8%83%EF%BC%89%E3%80%8B" target="_blank">Unidbg 的基本使用（七）</a>》</p><p>《<a href="https://www.yuque.com/lilac-2hqvv/xdwlsg/td2t5cvohdedb878?#%20%E3%80%8AUnidbg%20%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%EF%BC%88%E5%85%AB%EF%BC%89%E3%80%8B" target="_blank">Unidbg 的基本使用（八）</a>》</p><p>《<a href="https://www.yuque.com/lilac-2hqvv/xdwlsg/nwqez8c4hm5hri8c?#%20%E3%80%8AUnidbg%20%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%EF%BC%88%E4%B9%9D%EF%BC%89%E3%80%8B" target="_blank">Unidbg 的基本使用（九）</a>》</p><p>《<a href="https://www.yuque.com/docs/share/a0335319-e3dd-443c-b00e-b2af39ae7570?#%20%E3%80%8AUnidbg%20%E7%9A%84%E6%97%A5%E5%BF%97%E7%B3%BB%E7%BB%9F%E3%80%8B" target="_blank">Unidbg 的日志系统</a>》</p><p>《<a href="https://t.zsxq.com/08PJii87G" target="_blank">从整体上看 Unidbg</a>》</p><h1><br></h1><h3><span style="font-family: PingFangSC-Regular; font-size: 2em;">二、补环境</span></h3><p><br></p><h2>2.1 补环境基础</h2><p><br></p><h3>补文件访问</h3><p>《<a href="https://www.yuque.com/docs/share/1559bab0-90de-422c-a3fb-eb32e68f44e0?#%20%E3%80%8AUnidbg%20%E4%B8%AD%E5%A4%84%E7%90%86%E6%96%87%E4%BB%B6%E8%AE%BF%E9%97%AE%EF%BC%88%E4%B8%80%EF%BC%89%E3%80%8B" target="_blank">Unidbg 中处理文件访问（一）</a>》</p><p>《<a href="https://www.yuque.com/docs/share/c5c3ceab-570c-4e2a-823d-0c0a275cca33?#%20%E3%80%8AUnidbg%20%E4%B8%AD%E5%A4%84%E7%90%86%E6%96%87%E4%BB%B6%E8%AE%BF%E9%97%AE%EF%BC%88%E4%BA%8C%EF%BC%89%E3%80%8B" target="_blank">Unidbg 中处理文件访问（二）</a>》</p><p><br></p><h3>补系统调用</h3><p>《<a href="https://www.yuque.com/docs/share/449cfa56-be10-47f4-8d32-58770cc22f81?#%20%E3%80%8A%E8%A1%A5%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%EF%BC%88%E4%B8%80%EF%BC%89%E3%80%8B" target="_blank">补系统调用（一）</a>》</p><p>《<a href="https://www.yuque.com/docs/share/cbfb3b38-06a6-4d6d-b4df-ecaec219956f?#%20%E3%80%8A%E8%A1%A5%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%EF%BC%88%E4%BA%8C%EF%BC%89%E3%80%8B" target="_blank">补系统调用（二）</a>》</p><p>《<a href="https://www.yuque.com/docs/share/cb5f86f3-fea3-4f0c-a567-39cea30b9307?#%20%E3%80%8A%E8%A1%A5%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%EF%BC%88%E4%B8%89%EF%BC%89%E3%80%8B" target="_blank">补系统调用（三）</a>》</p><p>《<a href="https://www.yuque.com/docs/share/c6b0da92-bbff-4395-adf6-d8afbe5ef123?#%20%E3%80%8A%E8%A1%A5%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%EF%BC%88%E5%9B%9B%EF%BC%89%E3%80%8B" target="_blank">补系统调用（四）</a>》</p><p>《<a href="https://www.yuque.com/docs/share/c4721acc-94cc-4ff5-8dc0-a803444377d8?#%20%E3%80%8A%E8%A1%A5%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%EF%BC%88%E4%BA%94%EF%BC%89%E3%80%8B" target="_blank">补系统调用（五）</a>》</p><p><br></p><h3>补库函数</h3><p>《<a href="https://www.yuque.com/docs/share/e5d6dc74-031e-4273-9019-aa2a57ca38c6?#%20%E3%80%8A%E8%A1%A5%E5%BA%93%E5%87%BD%E6%95%B0%EF%BC%88%E4%B8%80%EF%BC%89%E3%80%8B" target="_blank">补库函数（一）</a>》</p><p>《<a href="https://www.yuque.com/docs/share/93dbe014-5f5b-4a5f-b9ae-76ce3004bbb9?#%20%E3%80%8A%E8%A1%A5%E5%BA%93%E5%87%BD%E6%95%B0%EF%BC%88%E4%BA%8C%EF%BC%89%E3%80%8B" target="_blank">补库函数（二）</a>》</p><p>《<a href="https://www.yuque.com/docs/share/40f8790b-c3d6-451d-93de-96a61877cbc3?#%20%E3%80%8A%E8%A1%A5%E5%BA%93%E5%87%BD%E6%95%B0%EF%BC%88%E4%B8%89%EF%BC%89%E3%80%8B" target="_blank">补库函数（三）</a>》</p><p>《<a href="https://www.yuque.com/docs/share/78bff5bb-f30d-41bb-b31a-59d7cbf28980?#%20%E3%80%8A%E8%A1%A5%E5%BA%93%E5%87%BD%E6%95%B0%EF%BC%88%E5%9B%9B%EF%BC%89%E3%80%8B" target="_blank">补库函数（四）</a>》</p><p>《<a href="https://www.yuque.com/docs/share/4db5d3a2-5270-460d-b39a-b7d0fcc46990?#%20%E3%80%8A%E8%A1%A5%E5%BA%93%E5%87%BD%E6%95%B0%EF%BC%88%E4%BA%94%EF%BC%89%E3%80%8B" target="_blank">补库函数（五）</a>》</p><p><br></p><h3>补环境的深层困境</h3><p>《<a href="https://www.yuque.com/docs/share/73ee15f5-6ec4-4f68-be14-a05af2568ab5?#%20%E3%80%8A%E7%8E%AF%E5%A2%83%E5%86%B2%E7%AA%81%E3%80%8B" target="_blank">环境冲突</a>》</p><p>《<a href="https://www.yuque.com/docs/share/64ff2989-5bdb-4c27-abd9-8c741e0f3acc?#%20%E3%80%8A%E5%87%BD%E6%95%B0%E7%9A%84%E5%89%AF%E4%BD%9C%E7%94%A8%E3%80%8B" target="_blank">函数的副作用</a>》</p><p><br></p><h2>2.2 初始化问题</h2><p><br></p><p>《<a href="https://www.yuque.com/docs/share/1dce3d7c-fb24-4fe4-a3a7-2f9406ab517c?#%20%E3%80%8AUnidbg%20%E5%87%BD%E6%95%B0%E5%88%9D%E5%A7%8B%E5%8C%96%E9%97%AE%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89%E3%80%8B" target="_blank">Unidbg 函数初始化问题（一）</a>》</p><p>《<a href="https://www.yuque.com/docs/share/e7f09b78-fc7d-41ba-be1b-5b05ece99936?#%20%E3%80%8AUnidbg%20%E5%87%BD%E6%95%B0%E5%88%9D%E5%A7%8B%E5%8C%96%E9%97%AE%E9%A2%98%EF%BC%88%E4%BA%8C%EF%BC%89%E3%80%8B" target="_blank">Unidbg 函数初始化问题（二）</a>》</p><p><br></p><h2>2.3 综合案例</h2><p><br></p><p>《<a href="https://t.zsxq.com/08wAD2EYB" target="_blank">wind 样例分析</a>》</p><p><br></p><h1>三、辅助算法还原</h1><p><br></p><p><a href="https://t.zsxq.com/07htRsQvo" target="_blank">《Hook in Unidbg》</a></p><p>《<a href="https://www.yuque.com/docs/share/80caf131-9f41-4e0b-b1b6-fa29e7d909eb?#%20%E3%80%8ATrace%20in%20Unidbg%EF%BC%88%E4%B8%80%EF%BC%89%E3%80%8B" target="_blank">Trace in Unidbg（一）</a>》</p><p>《<a href="https://www.yuque.com/docs/share/5bb4de33-13cf-4eb0-beba-558af41ebd46?#%20%E3%80%8ATrace%20in%20Unidbg%EF%BC%88%E4%BA%8C%EF%BC%89%E3%80%8B" target="_blank">Trace in Unidbg（二）</a>》</p><p>《<a href="https://www.yuque.com/docs/share/1425c020-f52a-420e-afe4-edf749e76d69?#%20%E3%80%8AUnidbg%20%E5%9B%BA%E5%AE%9A%E9%9A%8F%E6%9C%BA%E5%B9%B2%E6%89%B0%E9%A1%B9%EF%BC%88%E4%B8%8A%EF%BC%89%E3%80%8B" target="_blank">固定随机干扰项（上）</a>》</p><p><br></p><h1>四、其他</h1><p><br></p><p>《<a href="https://www.yuque.com/docs/share/b9962c1d-f2ef-4abe-bc0a-a771ab598131?#%20%E3%80%8A%E6%A3%80%E6%B5%8B%20Unidbg%E3%80%8B" target="_blank">检测 Unidbg</a>》</p><p><br></p><p><br></p><p><br></p><p><br></p></div>
+        </div>
+        <footer>
+                <div class="horizon-line"></div>
+                <img id="logo" src="/assets_dweb/logo@1x.png">
+                <div class="text">知识星球</div>
+                <div class="horizon-line"></div>
+        </footer>
+        <div class="qrcode-container">
+            <img class="qrcode" id="qrcode">
+            <div class="text-desc">扫码加入星球</div>
+            <div class="text-desc">查看更多优质内容</div>
+        </div>
+        <div id="qrcode-url">https://wx.zsxq.com/mweb/views/joingroup/join_group.html?group_id=28855842512881</div>
+        <input type="hidden" name="group_allow_copy" value="true" />
+        <input type="hidden" name="group_enable_watermark" value="false" />
+        <input type="hidden" name="member_id" value="215111115484581" />
+        <input type="hidden" name="member_name" value="最爱老大" />
+        <input type="hidden" name="member_role" value="other" />
+    </div>
+    <div class="message-container-overlay">
+    </div>
+    <script src="/js/jr-qrcode.js"></script>
+    <script src="/js/content-protection.js"></script>
+    <script src="/js/article_dweb.js"></script>
+</body>
+</html>
